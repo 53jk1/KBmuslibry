@@ -1,25 +1,43 @@
 package com.example.muslibry5k.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class Song {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;
     private String genre;
     private String ismn;
     private String year;
-    private String publisher;
 
-    @Id
-    private Long id;
+    @ManyToOne
+    private Publisher publisher;
 
     @ManyToMany
     private Set<Artist> artists = new HashSet<>();
+
+    public Song() {
+    }
+    public Song(String title, String genre, String ismn, String year, Publisher publisher) {
+        this.title = title;
+        this.genre = genre;
+        this.ismn = ismn;
+        this.year = year;
+        this.publisher = publisher;
+    }
+    public Song(String title, String genre, String ismn, String year, Publisher publisher, Set<Artist> artists) {
+        this.title = title;
+        this.genre = genre;
+        this.ismn = ismn;
+        this.year = year;
+        this.publisher = publisher;
+        this.artists = artists;
+    }
 
     public String getTitle() {
         return title;
@@ -53,14 +71,6 @@ public class Song {
         this.year = year;
     }
 
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
     public Set<Artist> getArtists() {
         return artists;
     }
@@ -77,28 +87,23 @@ public class Song {
         this.id = id;
     }
 
-    public Song(String title, String genre, String ismn, String year, String publisher, Set<Artist> artists) {
-        this.title = title;
-        this.genre = genre;
-        this.ismn = ismn;
-        this.year = year;
-        this.publisher = publisher;
-        this.artists = artists;
+    public Publisher getPublisher() {
+        return publisher;
     }
 
-    public Song() {
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     @Override
     public String toString() {
         return "Song{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
                 ", ismn='" + ismn + '\'' +
                 ", year='" + year + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", id=" + id +
-                ", artists=" + artists +
+                ", publisher=" + publisher +
                 '}';
     }
 }

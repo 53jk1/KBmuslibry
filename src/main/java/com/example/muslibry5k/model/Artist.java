@@ -1,22 +1,43 @@
 package com.example.muslibry5k.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class Artist {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String lastName;
     private String nick;
 
-    @Id
-    private Long id;
-
     @ManyToMany(mappedBy = "artists")
     private Set<Song> songs = new HashSet<>();
+
+    public Artist() {
+    }
+    public Artist(String firstName, String lastName, String nick) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nick = nick;
+    }
+    public Artist(String firstName, String lastName, String nick, Set<Song> songs) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nick = nick;
+        this.songs = songs;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -50,31 +71,13 @@ public class Artist {
         this.songs = songs;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Artist(String firstName, String lastName, String nick, Set<Song> songs) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.nick = nick;
-        this.songs = songs;
-    }
-
-    public Artist() {
-    }
-
     @Override
     public String toString() {
         return "Artist{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", nick='" + nick + '\'' +
-                ", id=" + id +
                 ", songs=" + songs +
                 '}';
     }
