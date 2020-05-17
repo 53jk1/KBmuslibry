@@ -27,6 +27,7 @@ public class DBInflater implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         initData();
     }
+
     private void initData() {
 
         Artist taco = new Artist("Filip", "Szcześniak", "Taco Hemingway");
