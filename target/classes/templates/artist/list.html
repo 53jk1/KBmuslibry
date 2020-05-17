@@ -9,6 +9,11 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <title>All artists</title>
 </head>
 <body>
@@ -30,10 +35,10 @@
                             <th>Actions</th>
                             </thead>
                             <tr th:each="artist : ${artists}">
-                                <td th:text="${artist.id}"></td>
-                                <td th:text="${artist.firstName}"></td>
-                                <td th:text="${artist.lastName}"></td>
-                                <td th:text="${artist.nick}"></td>
+                                <td th:text="${artist.id}">123</td>
+                                <td th:text="${artist.firstName}">Mister</td>
+                                <td th:text="${artist.lastName}">Kononowicz</td>
+                                <td th:text="${artist.nick}">Destroyer</td>
                                 <td>
                                     <a href="#" th:href="@{'/artist/' + ${artist.id} + '/show'}" style="margin-right: 5px;">View</a>
                                     <a href="#" th:href="@{'/artist/' + ${artist.id} + '/songs'}" style="margin-right: 5px;">Songs</a>
