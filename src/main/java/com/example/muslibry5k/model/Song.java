@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @EqualsAndHashCode(of = {"id"})
 @Entity
 public class Song {

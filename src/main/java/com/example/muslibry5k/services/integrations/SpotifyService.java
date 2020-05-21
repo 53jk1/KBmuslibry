@@ -37,7 +37,7 @@ public class SpotifyService {
         try {
             album = getAlbumRequest.execute();
 
-        } catch (IOException | SpotifyWebApiException e) {
+        } catch (IOException | SpotifyWebApiException | org.apache.hc.core5.http.ParseException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -48,7 +48,7 @@ public class SpotifyService {
 
         getOrRefreshToken();
         GetAlbumsTracksRequest getAlbumsTracksRequest = spotifyApi.getAlbumsTracks(albumId).build();
-        TrackSimplified[] albumsTracksSimplified = new TrackSimplified[0];
+        TrackSimplified[] albumsTracksSimplified;
         Track[] tracks = new Track[0];
 
         try {
@@ -66,7 +66,7 @@ public class SpotifyService {
                 tracks = getSeveralTracksRequest.execute();
 
             }
-        } catch (IOException | SpotifyWebApiException e) {
+        } catch (IOException | SpotifyWebApiException | org.apache.hc.core5.http.ParseException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -82,7 +82,7 @@ public class SpotifyService {
         try {
             albumSimplifiedPaging = searchAlbumsRequest.execute();
 
-        } catch (IOException | SpotifyWebApiException e) {
+        } catch (IOException | SpotifyWebApiException | org.apache.hc.core5.http.ParseException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -93,7 +93,7 @@ public class SpotifyService {
         if (clientCredentials == null) {
             try {
                 clientCredentials = clientCredentialsRequest.execute();
-            } catch (IOException | SpotifyWebApiException e) {
+            } catch (IOException | SpotifyWebApiException | org.apache.hc.core5.http.ParseException e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
