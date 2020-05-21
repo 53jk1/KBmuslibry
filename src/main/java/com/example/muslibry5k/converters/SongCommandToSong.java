@@ -6,22 +6,17 @@ import com.example.muslibry5k.model.Publisher;
 import com.example.muslibry5k.model.Song;
 import com.example.muslibry5k.repositories.ArtistRepository;
 import com.example.muslibry5k.repositories.PublisherRepository;
+import java.util.Optional;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.html.Option;
-import java.util.Optional;
-
-/**
- * Created by pk on 2019-06-03
- */
 @Component
 public class SongCommandToSong implements Converter<SongCommand, Song> {
 
-    private PublisherRepository publisherRepository;
-    private ArtistRepository artistRepository;
+    private final PublisherRepository publisherRepository;
+    private final ArtistRepository artistRepository;
 
     public SongCommandToSong(PublisherRepository publisherRepository, ArtistRepository artistRepository) {
         this.publisherRepository = publisherRepository;
