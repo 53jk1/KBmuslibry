@@ -15,6 +15,8 @@
     <description>Muslibry5k spring boot project for edu purposes</description>
 
     <properties>
+        <org.springframework.version>3.2.3.RELEASE</org.springframework.version>
+        <spring-security.version>3.1.4.RELEASE</spring-security.version>
         <java.version>14</java.version>
     </properties>
 
@@ -61,13 +63,20 @@
         </dependency>
     </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-asm</artifactId>
+        </exclusion>
+    </exclusions>
 
 </project>

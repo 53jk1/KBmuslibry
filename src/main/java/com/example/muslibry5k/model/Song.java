@@ -16,10 +16,10 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private final String title;
-    private final String genre;
-    private final String ismn;
-    private final String year;
+    private String title;
+    private String genre;
+    private String ismn;
+    private String year;
 
     @ManyToOne
     private Publisher publisher;
@@ -39,6 +39,30 @@ public class Song {
         this.title = title;
         this.genre = genre;
         this.ismn = ismn;
+        this.year = year;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPublisher(com.example.muslibry5k.model.Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setIsmn(String ismn) {
+        this.ismn = ismn;
+    }
+
+    public void setYear(String year) {
         this.year = year;
     }
 }
