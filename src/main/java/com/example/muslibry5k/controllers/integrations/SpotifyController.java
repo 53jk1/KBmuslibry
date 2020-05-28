@@ -1,10 +1,8 @@
 package com.example.muslibry5k.controllers.integrations;
 
-import com.example.muslibry5k.commands.integrations.SpotifyAlbumSearchForm;
 import com.example.muslibry5k.model.Artist;
 import com.example.muslibry5k.model.Publisher;
 import com.example.muslibry5k.model.Song;
-import com.example.muslibry5k.model.UnknownPublisher;
 import com.example.muslibry5k.repositories.ArtistRepository;
 import com.example.muslibry5k.repositories.PublisherRepository;
 import com.example.muslibry5k.repositories.SongRepository;
@@ -91,7 +89,7 @@ public class SpotifyController {
             if (publisherOptional.isPresent()) {
                 song.setPublisher(publisherOptional.get());
             } else {
-                song.setPublisher(UnknownPublisher("Unknown").get());
+
             }
 
             Optional<Artist> fromDatabaseArtist = artistRepository.getFirstByFirstName(artist.getFirstName());
