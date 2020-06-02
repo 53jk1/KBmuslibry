@@ -10,13 +10,11 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>muslibry5k</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>muslibry5k</name>
     <description>Muslibry5k spring boot project for edu purposes</description>
 
     <properties>
-        <org.springframework.version>3.2.3.RELEASE</org.springframework.version>
-        <spring-security.version>3.1.4.RELEASE</spring-security.version>
         <java.version>14</java.version>
     </properties>
 

@@ -46,7 +46,7 @@ public class SpotifyController {
     @RequestMapping(value = {"/spotify/albums"}, method = RequestMethod.GET)
     public String showAlbumSearch(Model model) {
 
-        SpotifyAlbumSearchForm albumSearchForm = new SpotifyAlbumSearchForm();
+        com.example.muslibry5k.commands.integrations.SpotifyAlbumSearchForm albumSearchForm = new com.example.muslibry5k.commands.integrations.SpotifyAlbumSearchForm();
         model.addAttribute("albumSearchForm", albumSearchForm);
 
         return "integrations/spotify/album/search";
@@ -54,7 +54,7 @@ public class SpotifyController {
 
     @RequestMapping(value = {"/spotify/albums"}, method = RequestMethod.POST)
     public String showAlbumsForImport(Model model,
-                                      @ModelAttribute("albumSearchForm") SpotifyAlbumSearchForm albumSearchForm) {
+                                      @ModelAttribute("albumSearchForm") com.example.muslibry5k.commands.integrations.SpotifyAlbumSearchForm albumSearchForm) {
 
         String query = albumSearchForm.getQuery();
 
